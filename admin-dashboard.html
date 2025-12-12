@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - HomeCare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span>HomeCare</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" onclick="showSection('dashboard', this); return false;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('requests', this); return false;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Requests</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('doctors', this); return false;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>Doctors</span>
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('history', this); return false;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    <span>History</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <h1 class="page-title">Admin Dashboard</h1>
+                <div class="top-bar-actions">
+                    <div class="profile-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Dashboard Section -->
+                <div id="dashboard-section">
+                    <!-- Analytics Tiles -->
+                    <div class="analytics-grid">
+                    <div class="analytics-tile">
+                        <div class="tile-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="tile-content">
+                            <h3>Total Requests</h3>
+                            <p class="tile-number">247</p>
+                        </div>
+                    </div>
+                    <div class="analytics-tile">
+                        <div class="tile-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <div class="tile-content">
+                            <h3>Completed</h3>
+                            <p class="tile-number">189</p>
+                        </div>
+                    </div>
+                    <div class="analytics-tile">
+                        <div class="tile-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="tile-content">
+                            <h3>Assigned</h3>
+                            <p class="tile-number">42</p>
+                        </div>
+                    </div>
+                    <div class="analytics-tile">
+                        <div class="tile-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                        </div>
+                        <div class="tile-content">
+                            <h3>Pending</h3>
+                            <p class="tile-number">16</p>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Requests Table -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">All Requests</h2>
+                            <div class="card-actions">
+                                <select class="form-control filter-select">
+                                    <option value="all">All Status</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="assigned">Assigned</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Patient Name</th>
+                                        <th>Age</th>
+                                        <th>Problem</th>
+                                        <th>Doctor</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="requestsTableBody">
+                                    <!-- Requests will be populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+               
+
+                <!-- Doctors Section -->
+                <div id="doctors-section" style="display: none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">All Doctors</h2>
+                            <button class="btn btn-primary" onclick="openAddDoctorModal()">+ Add Doctor</button>
+                        </div>
+                        <div class="doctors-grid" id="doctorsGrid">
+                            <!-- Doctor cards will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Doctor Details View -->
+                    <div class="card doctor-details-view" id="doctorDetailsView" style="display: none;">
+                        <div class="card-header">
+                            <h2 class="card-title" id="doctorDetailsTitle">Doctor Details</h2>
+                            <button class="btn-close" onclick="closeDoctorDetails()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="doctor-stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <h3>Total Patients Treated</h3>
+                                    <p class="stat-number" id="totalPatients">0</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <h3>Assigned</h3>
+                                    <p class="stat-number" id="assignedCount">0</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <h3>Completed</h3>
+                                    <p class="stat-number" id="completedCount">0</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <h3>Pending</h3>
+                                    <p class="stat-number" id="pendingCount">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <div id="history-section" style="display: none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Completed Appointments</h2>
+                        </div>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Patient Name</th>
+                                        <th>Age</th>
+                                        <th>Problem</th>
+                                        <th>Doctor</th>
+                                        <th>Completed Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#1003</td>
+                                        <td>Robert Johnson</td>
+                                        <td>45</td>
+                                        <td>Back Pain</td>
+                                        <td>Dr. Michael Williams</td>
+                                        <td>Jan 15, 2024</td>
+                                        <td><button class="btn-action" onclick="viewDetails(1003)">View Details</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1006</td>
+                                        <td>Sarah Johnson</td>
+                                        <td>35</td>
+                                        <td>Chest Pain</td>
+                                        <td>Dr. Sarah Jones</td>
+                                        <td>Jan 10, 2024</td>
+                                        <td><button class="btn-action" onclick="viewDetails(1006)">View Details</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1007</td>
+                                        <td>Lisa Anderson</td>
+                                        <td>29</td>
+                                        <td>Fever</td>
+                                        <td>Dr. David Davis</td>
+                                        <td>Jan 8, 2024</td>
+                                        <td><button class="btn-action" onclick="viewDetails(1007)">View Details</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1008</td>
+                                        <td>James Wilson</td>
+                                        <td>52</td>
+                                        <td>Skin Condition</td>
+                                        <td>Dr. Emily Brown</td>
+                                        <td>Jan 5, 2024</td>
+                                        <td><button class="btn-action" onclick="viewDetails(1008)">View Details</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1009</td>
+                                        <td>Maria Garcia</td>
+                                        <td>38</td>
+                                        <td>Headache</td>
+                                        <td>Dr. John Smith</td>
+                                        <td>Jan 3, 2024</td>
+                                        <td><button class="btn-action" onclick="viewDetails(1009)">View Details</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Assign Doctor -->
+    <div id="assignModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Assign Doctor</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="doctor-assign">Select Doctor</label>
+                    <select id="doctor-assign" class="form-control">
+                        <option value="">Choose a doctor</option>
+                        <option value="dr-smith">Dr. John Smith - Cardiologist</option>
+                        <option value="dr-jones">Dr. Sarah Jones - Neurologist</option>
+                        <option value="dr-williams">Dr. Michael Williams - Orthopedist</option>
+                        <option value="dr-brown">Dr. Emily Brown - Dermatologist</option>
+                        <option value="dr-davis">Dr. David Davis - General Physician</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary modal-close">Cancel</button>
+                <button class="btn btn-primary">Assign</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Add Doctor -->
+    <div id="addDoctorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Doctor</h3>
+                <span class="modal-close" onclick="closeAddDoctorModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="addDoctorForm" class="appointment-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="doctor-name">Full Name</label>
+                            <input type="text" id="doctor-name" class="form-control" placeholder="e.g., Dr. John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor-email">Email Address</label>
+                            <input type="email" id="doctor-email" class="form-control" placeholder="e.g., dr.john@hospital.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="doctor-specialization">Specialization</label>
+                            <select id="doctor-specialization" class="form-control" required>
+                                <option value="">Select Specialization</option>
+                                <option value="Cardiologist">Cardiologist</option>
+                                <option value="Neurologist">Neurologist</option>
+                                <option value="Orthopedist">Orthopedist</option>
+                                <option value="Dermatologist">Dermatologist</option>
+                                <option value="General Physician">General Physician</option>
+                                <option value="Pediatrician">Pediatrician</option>
+                                <option value="Psychiatrist">Psychiatrist</option>
+                                <option value="Physiotherapist">Physiotherapist</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor-password">Password</label>
+                            <input type="password" id="doctor-password" class="form-control" placeholder="Leave empty for default: pass123" value="pass123">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAddDoctorModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="submitAddDoctor()">Add Doctor</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize page - show dashboard by default
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure dashboard section is visible on load
+            document.getElementById('dashboard-section').style.display = 'block';
+            document.getElementById('doctors-section').style.display = 'none';
+            document.getElementById('history-section').style.display = 'none';
+
+            // Load requests
+            loadRequests();
+
+            // Load doctors to populate admin doctors grid and assign select
+            fetch('/doctors')
+                .then(function(res){ return res.json(); })
+                .then(function(doctors){
+                    const grid = document.getElementById('doctorsGrid');
+                    const assignSelect = document.getElementById('doctor-assign');
+                    grid.innerHTML = '';
+                    // reset assign select
+                    assignSelect.innerHTML = '<option value="">Choose a doctor</option>';
+                    doctors.forEach(function(d){
+                        // create card
+                        const card = document.createElement('div');
+                        card.className = 'doctor-card';
+                        card.onclick = function(){ viewDoctorDetails(d.doctor_id); };
+                        card.innerHTML = `
+                            <div class="doctor-avatar">
+                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <h3>${d.name}</h3>
+                            <p>${d.specialization}</p>
+                            <span class="badge ${d.status === 'active' ? 'badge-info' : 'badge-warning'}">${d.status.charAt(0).toUpperCase() + d.status.slice(1)}</span>
+                        `;
+                        grid.appendChild(card);
+
+                        // add to assign select if active
+                        if (d.status === 'active') {
+                            const opt = document.createElement('option');
+                            opt.value = d.doctor_id;
+                            opt.textContent = d.name + ' - ' + d.specialization;
+                            assignSelect.appendChild(opt);
+                        }
+                    });
+                })
+                .catch(function(err){
+                    console.error('Failed to load doctors', err);
+                });
+        });
+
+        // Load requests from backend
+        function loadRequests() {
+            fetch('/appointments')
+                .then(function(res){ return res.json(); })
+                .then(function(requests){
+                    const tbody = document.getElementById('requestsTableBody');
+                    tbody.innerHTML = '';
+                    requests.forEach(function(req){
+                        const badgeClass = req.status === 'pending' ? 'badge-warning' : 
+                                          req.status === 'assigned' ? 'badge-info' : 'badge-success';
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>#${req.id}</td>
+                            <td>${req.patient_name}</td>
+                            <td>${req.patient_age}</td>
+                            <td>${req.problem}</td>
+                            <td>${req.doctor_name}</td>
+                            <td><span class="badge ${badgeClass}">${req.status.charAt(0).toUpperCase() + req.status.slice(1)}</span></td>
+                            <td>
+                                ${req.status === 'pending' ? 
+                                    `<button class="btn-action" onclick="assignDoctor(${req.id})">Assign Doctor</button>` :
+                                    `<button class="btn-action" onclick="changeDoctor(${req.id})">Change Doctor</button>
+                                     <button class="btn-action" onclick="sendEmail(${req.id})">Email Patient</button>`
+                                }
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                })
+                .catch(function(err){
+                    console.error('Failed to load requests', err);
+                });
+        }
+
+
+        // Navigation functions
+        function showSection(section, element) {
+            // Hide all sections
+            document.getElementById('dashboard-section').style.display = 'none';
+            document.getElementById('doctors-section').style.display = 'none';
+            document.getElementById('history-section').style.display = 'none';
+            
+            // Hide doctor details view when switching sections
+            document.getElementById('doctorDetailsView').style.display = 'none';
+            
+            // Show selected section
+            if (section === 'dashboard' || section === 'requests') {
+                document.getElementById('dashboard-section').style.display = 'block';
+            } else if (section === 'doctors') {
+                document.getElementById('doctors-section').style.display = 'block';
+            } else if (section === 'history') {
+                document.getElementById('history-section').style.display = 'block';
+            }
+            
+            // Update active nav item
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+
+        // Doctor data
+        const doctorData = {
+            'dr-smith': {
+                name: 'Dr. John Smith',
+                specialty: 'Cardiologist',
+                totalPatients: 156,
+                assigned: 8,
+                completed: 142,
+                pending: 6
+            },
+            'dr-jones': {
+                name: 'Dr. Sarah Jones',
+                specialty: 'Neurologist',
+                totalPatients: 134,
+                assigned: 5,
+                completed: 125,
+                pending: 4
+            },
+            'dr-williams': {
+                name: 'Dr. Michael Williams',
+                specialty: 'Orthopedist',
+                totalPatients: 178,
+                assigned: 12,
+                completed: 160,
+                pending: 6
+            },
+            'dr-brown': {
+                name: 'Dr. Emily Brown',
+                specialty: 'Dermatologist',
+                totalPatients: 98,
+                assigned: 4,
+                completed: 90,
+                pending: 4
+            },
+            'dr-davis': {
+                name: 'Dr. David Davis',
+                specialty: 'General Physician',
+                totalPatients: 203,
+                assigned: 15,
+                completed: 180,
+                pending: 8
+            }
+        };
+
+        function viewDoctorDetails(doctorId) {
+            const doctor = doctorData[doctorId];
+            if (doctor) {
+                document.getElementById('doctorDetailsTitle').textContent = doctor.name + ' - ' + doctor.specialty;
+                document.getElementById('totalPatients').textContent = doctor.totalPatients;
+                document.getElementById('assignedCount').textContent = doctor.assigned;
+                document.getElementById('completedCount').textContent = doctor.completed;
+                document.getElementById('pendingCount').textContent = doctor.pending;
+                document.getElementById('doctorDetailsView').style.display = 'block';
+                
+                // Scroll to doctor details
+                document.getElementById('doctorDetailsView').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function closeDoctorDetails() {
+            document.getElementById('doctorDetailsView').style.display = 'none';
+        }
+
+        function assignDoctor(id) {
+            document.getElementById('assignModal').style.display = 'block';
+        }
+        
+        function changeDoctor(id) {
+            document.getElementById('assignModal').style.display = 'block';
+        }
+        
+        function sendEmail(id) {
+            alert('Email sent to patient with available time slots.');
+        }
+        
+        function viewDetails(id) {
+            alert('Viewing details for request #' + id);
+        }
+        
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('assignModal').style.display = 'none';
+            });
+        });
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('assignModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+            const addDoctorModal = document.getElementById('addDoctorModal');
+            if (event.target == addDoctorModal) {
+                addDoctorModal.style.display = 'none';
+            }
+        }
+
+        // Add Doctor Modal Functions
+        function openAddDoctorModal() {
+            document.getElementById('addDoctorModal').style.display = 'block';
+            document.getElementById('addDoctorForm').reset();
+            document.getElementById('doctor-password').value = 'pass123';
+        }
+
+        function closeAddDoctorModal() {
+            document.getElementById('addDoctorModal').style.display = 'none';
+            document.getElementById('addDoctorForm').reset();
+        }
+
+        function submitAddDoctor() {
+            const doctorName = document.getElementById('doctor-name').value.trim();
+            const doctorEmail = document.getElementById('doctor-email').value.trim();
+            const specialization = document.getElementById('doctor-specialization').value;
+            const password = document.getElementById('doctor-password').value;
+
+            if (!doctorName || !doctorEmail || !specialization) {
+                alert('Please fill all required fields');
+                return;
+            }
+
+            // Send data to backend (doctor_id and code will be generated automatically)
+            fetch('http://127.0.0.1:5000/doctors/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: doctorName,
+                    email: doctorEmail,
+                    specialization: specialization,
+                    password: password
+                })
+            })
+            .then(res => res.json().then(data => ({ status: res.status, data })))
+            .then(({ status, data }) => {
+                if (status === 201) {
+                    alert('Doctor added successfully!');
+                    closeAddDoctorModal();
+                    location.reload();
+                } else {
+                    alert(data.error || 'Failed to add doctor');
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Error adding doctor. Please try again.');
+            });
+        }
+    </script>
+</body>
+</html>
+
+
